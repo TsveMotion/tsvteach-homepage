@@ -1,103 +1,101 @@
 import Image from "next/image";
+import Head from 'next/head';
+import HeroSection from '@/components/HeroSection';
+import WhyTsvTeachSection from '@/components/WhyTsvTeachSection';
+import FeatureSection from '@/components/FeatureSection';
+import FinalCTASection from '@/components/FinalCTASection';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <title>TsvTeach | AI-Powered Learning Tool for UK Students | GCSEs & A-Levels</title>
+        <meta name="description" content="TsvTeach helps UK students achieve top grades with AI-powered tools, GCSE resources, A-level preparation, and interactive learning. Smart studying starts here." />
+        <meta name="keywords" content="TsvTeach, GCSE AI tutor, A-level AI tutor, AI learning, top grades UK students, GCSE revision, A-level revision, UK education, smart studying, exam preparation" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="TsvTeach Team" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tsvteach.com/" />
+        <meta property="og:title" content="TsvTeach - AI-Powered Learning Tool for UK Students" />
+        <meta property="og:description" content="AI-powered learning platform helping UK students excel in GCSEs and A-levels. Join thousands improving their grades with TsvTeach." />
+        <meta property="og:image" content="https://tsvteach.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="TsvTeach - AI Learning Platform for UK Students" />
+        <meta property="og:site_name" content="TsvTeach" />
+        <meta property="og:locale" content="en_GB" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://tsvteach.com/" />
+        <meta property="twitter:title" content="TsvTeach - AI-Powered Learning Tool for UK Students" />
+        <meta property="twitter:description" content="AI-powered learning platform helping UK students excel in GCSEs and A-levels. Smart studying starts here." />
+        <meta property="twitter:image" content="https://tsvteach.com/og-image.jpg" />
+        <meta property="twitter:image:alt" content="TsvTeach Logo - AI Learning Platform" />
+        <meta property="twitter:creator" content="@TsvTeach" />
+        <meta property="twitter:site" content="@TsvTeach" />
+        
+        {/* Additional SEO tags */}
+        <meta name="theme-color" content="#00f400" />
+        <meta name="msapplication-TileColor" content="#00f400" />
+        <link rel="canonical" href="https://tsvteach.com/" />
+        <link rel="alternate" hrefLang="en-gb" href="https://tsvteach.com/" />
+        
+        {/* Structured Data for TsvTeach Brand */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "TsvTeach - AI-Powered Learning Tool for UK Students",
+              "description": "TsvTeach helps UK students achieve top grades with AI-powered tools, GCSE resources, and interactive learning.",
+              "url": "https://tsvteach.com",
+              "mainEntity": {
+                "@type": "EducationalOrganization",
+                "name": "TsvTeach",
+                "alternateName": ["TsvTeach.com", "TSV Teach"],
+                "description": "Leading AI-powered learning platform for UK students preparing for GCSEs and A-levels",
+                "url": "https://tsvteach.com",
+                "logo": "https://tsvteach.com/logo.png",
+                "image": "https://tsvteach.com/og-image.jpg",
+                "sameAs": [
+                  "https://www.instagram.com/tsvteach",
+                  "https://www.twitter.com/tsvteach",
+                  "https://www.linkedin.com/company/tsvteach",
+                  "https://www.facebook.com/tsvteach"
+                ],
+                "areaServed": "United Kingdom",
+                "audience": {
+                  "@type": "EducationalAudience",
+                  "audienceType": "student",
+                  "educationalLevel": ["GCSE", "A-Level"]
+                },
+                "serviceType": "AI-powered educational technology",
+                "availableLanguage": "en-GB"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "TsvTeach Home",
+                  "item": "https://tsvteach.com"
+                }]
+              }
+            })
+          }}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </Head>
+      
+      <div className="min-h-screen">
+        <HeroSection />
+        <WhyTsvTeachSection />
+        <FeatureSection />
+        <FinalCTASection />
+      </div>
+    </>
   );
 }
