@@ -143,7 +143,7 @@ export default function NewHeroSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="flex-1 w-full sm:w-auto px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-black focus:outline-none text-black bg-white"
+              className="flex-1 w-full sm:w-auto px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-gray-900 bg-white shadow-sm"
               required
             />
             <button
@@ -173,15 +173,15 @@ export default function NewHeroSection() {
           </motion.div>
         )}
 
-        {/* Social Proof */}
-        <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+        {/* Beta Social Proof */}
+        <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
           <div className="flex -space-x-2">
             <div className="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
             <div className="w-8 h-8 bg-green-500 rounded-full border-2 border-white"></div>
             <div className="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
             <div className="w-8 h-8 bg-orange-500 rounded-full border-2 border-white"></div>
           </div>
-          <span>Loved by 1,000,000+ learners</span>
+          <span>Join early beta testers validating our idea ✨</span>
         </div>
 
         {/* Hero Visual Preview */}

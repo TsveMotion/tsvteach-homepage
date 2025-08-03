@@ -85,20 +85,26 @@ export default function SignupCounter() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-      <div className="text-center mb-4">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+    <div className="w-full max-w-lg mx-auto bg-white border-2 border-gray-300 rounded-xl p-8 shadow-lg">
+      <div className="text-center mb-6">
+        <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+          🚀 Beta Launch Progress
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">
           Launch Progress
         </h3>
-        <p className="text-sm text-gray-600">
-          We'll launch when we reach {signupData.target.toLocaleString()} signups!
+        <p className="text-base text-gray-700">
+          We're validating our idea! Launch when we reach {signupData.target.toLocaleString()} beta signups.
         </p>
       </div>
       
-      {/* Mini Graph */}
-      <div className="mb-4 bg-white rounded-lg border border-gray-100 p-3">
-        <div className="text-xs text-gray-500 mb-2 text-center">Growth Trend</div>
-        <svg width="100%" height="60" viewBox="0 0 100 100" className="overflow-visible">
+      {/* Enhanced Growth Graph */}
+      <div className="mb-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border-2 border-gray-200 p-6">
+        <div className="text-sm font-semibold text-gray-700 mb-4 text-center flex items-center justify-center">
+          <span className="mr-2">📈</span> Beta Signup Trend
+        </div>
+        <svg width="100%" height="80" viewBox="0 0 100 100" className="overflow-visible">
           <defs>
             <linearGradient id="graphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" style={{stopColor: '#10b981', stopOpacity: 0.3}} />
@@ -139,29 +145,51 @@ export default function SignupCounter() {
         </svg>
       </div>
       
-      <div className="space-y-3">
-        <div className="flex justify-between items-center">
-          <span className="text-2xl font-bold text-black">
-            {signupData.current.toLocaleString()}
-          </span>
-          <span className="text-sm text-gray-500">
-            / {signupData.target.toLocaleString()} signups
-          </span>
+      <div className="space-y-6">
+        {/* Main Numbers Display */}
+        <div className="text-center bg-white rounded-xl border border-gray-200 p-6">
+          <div className="flex items-center justify-center space-x-4">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-blue-600 mb-1">
+                {signupData.current.toLocaleString()}
+              </div>
+              <div className="text-sm text-gray-500 uppercase tracking-wide">
+                Beta Users
+              </div>
+            </div>
+            <div className="text-2xl text-gray-300">/</div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-400">
+                {signupData.target.toLocaleString()}
+              </div>
+              <div className="text-sm text-gray-500 uppercase tracking-wide">
+                Launch Goal
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div className="w-full bg-gray-200 rounded-full h-3">
-          <motion.div
-            className="bg-green-500 h-3 rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: `${percentage}%` }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          />
-        </div>
-        
-        <div className="text-center">
-          <span className="text-lg font-medium text-gray-700">
-            {signupData.remaining.toLocaleString()} signups remaining
-          </span>
+        {/* Enhanced Progress Bar */}
+        <div className="bg-white rounded-lg p-4">
+          <div className="w-full bg-gray-200 rounded-full h-4 mb-3">
+            <motion.div
+              className="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full relative overflow-hidden"
+              initial={{ width: 0 }}
+              animate={{ width: `${percentage}%` }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+            </motion.div>
+          </div>
+          
+          <div className="text-center">
+            <span className="text-xl font-bold text-gray-800">
+              {signupData.remaining.toLocaleString()} more needed to launch!
+            </span>
+            <div className="text-sm text-gray-500 mt-1">
+              {percentage.toFixed(1)}% complete
+            </div>
+          </div>
         </div>
       </div>
       

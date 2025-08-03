@@ -2,7 +2,7 @@ import Head from 'next/head';
 import NewHeroSection from '@/components/NewHeroSection';
 import UniversityLogos from '@/components/UniversityLogos';
 import FeaturesShowcase from '@/components/FeaturesShowcase';
-import StudentTestimonials from '@/components/StudentTestimonials';
+import BlogCarousel from '@/components/BlogCarousel';
 import FinalEmailCTA from '@/components/FinalEmailCTA';
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
         <NewHeroSection />
         <UniversityLogos />
         <FeaturesShowcase />
-        <StudentTestimonials />
+        <BlogCarousel />
         <FinalEmailCTA />
       </main>
     </>

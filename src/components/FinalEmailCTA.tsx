@@ -102,58 +102,44 @@ export default function FinalEmailCTA() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 py-12 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            {/* Brand */}
-            <div className="md:col-span-1">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">T</span>
-                </div>
-                <span className="text-black font-semibold text-xl">TsvTeach</span>
-              </div>
-              <p className="text-gray-600 text-sm">
-                AI-powered learning platform for UK students preparing for GCSEs and A-levels.
-              </p>
+      {/* Simple Validation Footer */}
+      <footer className="bg-white border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 py-12 text-center">
+          {/* Logo */}
+          <div className="flex items-center justify-center space-x-2 mb-6">
+            <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">T</span>
             </div>
-
-            {/* Links */}
-            <div>
-              <h4 className="font-semibold text-black mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="/about" className="hover:text-black transition-colors">About</a></li>
-                <li><a href="/gcse" className="hover:text-black transition-colors">GCSE</a></li>
-                <li><a href="/a-levels" className="hover:text-black transition-colors">A-Levels</a></li>
-                <li><a href="/blog" className="hover:text-black transition-colors">Blog</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-black mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="#" className="hover:text-black transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Terms of Service</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-black mb-4">Connect</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><a href="#" className="hover:text-black transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">YouTube</a></li>
-              </ul>
-            </div>
+            <span className="font-semibold text-gray-900 text-xl">TsvTeach</span>
           </div>
-
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          
+          {/* Validation Message */}
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
+              <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+              🚀 Idea Validation Phase
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              We're validating our AI learning platform idea!
+            </h3>
+            <p className="text-gray-700 text-sm">
+              Help us build the perfect study tool for UK students. Join our beta waitlist and be part of shaping the future of AI-powered education.
+            </p>
+          </div>
+          
+          {/* Only working links */}
+          <div className="flex justify-center space-x-6 mb-6 text-sm">
+            <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">
+              📚 Blog
+            </a>
+            <a href="/admin" className="text-gray-600 hover:text-gray-900 transition-colors">
+              🔐 Admin
+            </a>
+          </div>
+          
+          <div className="border-t border-gray-200 pt-6">
             <p className="text-gray-500 text-sm">
-              © Copyright 2025 TsvTeach Inc. All rights reserved.
+              © 2025 TsvTeach - Validating ideas, building the future of education ✨
             </p>
           </div>
         </div>
