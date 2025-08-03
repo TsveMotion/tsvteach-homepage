@@ -1,9 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'A-Level AI Tutor | TsvTeach - Get A* Grades with AI-Powered Learning',
-  description: 'TsvTeach\'s A-Level AI tutor helps UK students achieve A* grades in all subjects. Advanced AI-powered learning, personalized study plans, and university preparation.',
+  description: 'TsvTeach&apos;s A-Level AI tutor helps UK students achieve A* grades in all subjects. Advanced AI-powered learning, personalized study plans, and university preparation.',
   keywords: 'A-Level AI tutor, A* grades A-Level, A-Level revision, TsvTeach A-Level, AI learning A-Level, A-Level help UK, A-Level exam preparation, university entrance',
   openGraph: {
     title: 'A-Level AI Tutor | TsvTeach - Get A* Grades',
@@ -61,7 +62,7 @@ export default function ALevels() {
               <div className="text-4xl mb-4">⭐</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">A* Grade Focus</h3>
               <p className="text-gray-700">
-                <strong>TsvTeach</strong>'s advanced AI tutor is designed to help A-Level students achieve A* grades across all subjects.
+                <strong>TsvTeach</strong>&apos;s advanced AI tutor is designed to help A-Level students achieve A* grades across all subjects.
               </p>
             </div>
             
@@ -113,14 +114,14 @@ export default function ALevels() {
           <div className="bg-gradient-to-r from-[#00f400] to-[#00e600] rounded-2xl p-8 text-center">
             <h2 className="text-3xl font-bold text-black mb-4">Secure Your University Future</h2>
             <p className="text-lg text-black mb-6">
-              Join top-performing students achieving A* grades and university success with <strong>TsvTeach</strong>'s AI-powered A-Level tutoring.
+              Join top-performing students achieving A* grades and university success with <strong>TsvTeach</strong>&#39;s AI-powered A-Level tutoring.
             </p>
-            <a 
+            <Link 
               href="/" 
               className="inline-block bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all duration-300"
             >
               Start Your A-Level Success Journey
-            </a>
+            </Link>
           </div>
         </div>
       </div>

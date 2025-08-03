@@ -178,9 +178,9 @@ export default function FinalCTASection() {
             >
               <div className="flex items-center justify-center mb-2">
                 <span className="text-3xl mr-2">🎉</span>
-                <h3 className="text-2xl font-bold">You're In!</h3>
+                <h3 className="text-2xl font-bold">You&apos;re In!</h3>
               </div>
-              <p className="text-lg">We'll email you the moment TsvTeach.com launches!</p>
+              <p className="text-lg">We&apos;ll email you the moment TsvTeach.com launches!</p>
             </motion.div>
           )}
         </motion.div>
@@ -214,9 +214,9 @@ export default function FinalCTASection() {
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
         >
           <p className="text-gray-300 text-lg leading-relaxed">
-            <span className="text-[#00f400] font-semibold">"The best time to plant a tree was 20 years ago. The second best time is now."</span>
+            <span className="text-[#00f400] font-semibold">&quot;The best time to plant a tree was 20 years ago. The second best time is now.&quot;</span>
             <br />
-            <span className="text-sm mt-2 block">Don't wait until exam stress kicks in. Start smarter studying today.</span>
+            <span className="text-sm mt-2 block">Don&apos;t wait until exam stress kicks in. Start smarter studying today.</span>
           </p>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 // Optimized particle component
 const Particle = ({ delay = 0 }) => {
@@ -26,49 +26,13 @@ const Particle = ({ delay = 0 }) => {
   );
 };
 
-// Floating text animation component
-interface FloatingTextProps {
-  children: React.ReactNode;
-  delay?: number;
-}
-
-const FloatingText = ({ children, delay = 0 }: FloatingTextProps) => {
-  return (
-    <motion.span
-      className="inline-block"
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ 
-        duration: 0.8, 
-        delay: delay,
-        type: "spring",
-        stiffness: 100
-      }}
-      whileHover={{ 
-        scale: 1.05,
-        transition: { duration: 0.2 }
-      }}
-    >
-      {children}
-    </motion.span>
-  );
-};
+// Floating text component removed to clean up unused code
 
 export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Mouse tracking for interactive effects
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  // Mouse tracking removed to clean up unused code
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -255,7 +219,7 @@ export default function HeroSection() {
                     🎉
                   </motion.span>
                 </motion.h3>
-                <p className="text-lg">We'll notify you when TsvTeach.com launches!</p>
+                <p className="text-lg text-black mb-2">We&apos;ll keep you updated on our launch progress!</p>
               </div>
             </motion.div>
           )}

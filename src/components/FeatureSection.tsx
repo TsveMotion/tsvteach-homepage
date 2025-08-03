@@ -304,7 +304,7 @@ export default function FeatureSection() {
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 1.8 }}
             >
-              "I went from a C to an A* in Maths using TsvTeach! The AI knew exactly what I needed to work on. It's like having a personal tutor who never gets tired."
+              &quot;I went from a C to an A* in Maths using TsvTeach! The AI knew exactly what I needed to work on. It&apos;s like having a personal tutor who never gets tired.&quot;
             </motion.blockquote>
             
             <motion.div

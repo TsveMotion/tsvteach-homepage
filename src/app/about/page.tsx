@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -79,12 +80,12 @@ export default function About() {
             <p className="text-lg text-black mb-6">
               <strong>TsvTeach</strong> has helped thousands of UK students improve their grades and achieve their academic dreams. Start your journey to success today.
             </p>
-            <a 
+            <Link 
               href="/" 
               className="inline-block bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all duration-300"
             >
               Get Started with TsvTeach
-            </a>
+            </Link>
           </div>
         </div>
       </div>

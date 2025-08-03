@@ -1,9 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'GCSE AI Tutor | TsvTeach - Get Grade 9s with AI-Powered Learning',
-  description: 'TsvTeach\'s GCSE AI tutor helps UK students achieve Grade 9s in all subjects. Interactive AI-powered learning, personalized study plans, and exam preparation.',
+  description: 'TsvTeach&apos;s GCSE AI tutor helps UK students achieve Grade 9s in all subjects. Interactive AI-powered learning, personalized study plans, and exam preparation.',
   keywords: 'GCSE AI tutor, Grade 9 GCSE, GCSE revision, TsvTeach GCSE, AI learning GCSE, GCSE help UK, GCSE exam preparation',
   openGraph: {
     title: 'GCSE AI Tutor | TsvTeach - Get Grade 9s',
@@ -60,7 +61,7 @@ export default function GCSE() {
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Grade 9 Focus</h3>
               <p className="text-gray-700">
-                <strong>TsvTeach</strong>'s AI tutor is specifically designed to help students achieve Grade 9s in all GCSE subjects.
+                <strong>TsvTeach</strong>&apos;s AI tutor is specifically designed to help students achieve Grade 9s in all GCSE subjects.
               </p>
             </div>
             
@@ -106,14 +107,14 @@ export default function GCSE() {
           <div className="bg-gradient-to-r from-[#00f400] to-[#00e600] rounded-2xl p-8 text-center">
             <h2 className="text-3xl font-bold text-black mb-4">Start Your GCSE Success Journey</h2>
             <p className="text-lg text-black mb-6">
-              Join thousands of UK students achieving Grade 9s with <strong>TsvTeach</strong>'s AI-powered GCSE tutoring.
+              Join thousands of UK students achieving Grade 9s with <strong>TsvTeach</strong>&#39;s AI-powered GCSE tutoring.
             </p>
-            <a 
+            <Link 
               href="/" 
               className="inline-block bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all duration-300"
             >
               Get Started with TsvTeach GCSE
-            </a>
+            </Link>
           </div>
         </div>
       </div>
