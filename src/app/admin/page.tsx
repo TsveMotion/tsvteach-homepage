@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Subscriber {
@@ -17,14 +17,30 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple password protection - in production, use proper authentication
-    if (password === 'tsvteach2024') {
-      setIsAuthenticated(true);
-      fetchSubscribers();
-    } else {
-      setError('Invalid password');
+    setLoading(true);
+    
+    try {
+      const response = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+      
+      if (response.ok) {
+        setIsAuthenticated(true);
+        fetchSubscribers();
+        setError('');
+      } else {
+        setError('Invalid password');
+      }
+    } catch (_error) {
+      setError('Authentication error');
+    } finally {
+      setLoading(false);
     }
   };
 

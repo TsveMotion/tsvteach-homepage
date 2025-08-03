@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TsvTeach - AI-Powered Learning Tool for UK Students | GCSEs & A-Levels",
-  description: "TsvTeach is the leading AI-powered learning platform helping UK students excel in GCSEs and A-levels. Smart studying starts here with personalized AI tutoring and exam preparation.",
-  keywords: "TsvTeach, AI learning, GCSE, A-levels, UK students, exam preparation, AI tutor, online learning, study tool, education technology, smart studying",
+  title: "TsvTeach - AI Tutor for UK Students | Join Our Waitlist",
+  description: "Join TsvTeach's waitlist! AI-powered learning platform for UK students preparing for GCSEs and A-levels. Help us validate our idea - launching at 1,000 signups.",
+  keywords: "TsvTeach, AI tutor, GCSE, A-level, UK students, waitlist, learning platform, study helper, validation, early access",
   authors: [{ name: "TsvTeach Team" }],
   creator: "TsvTeach",
   publisher: "TsvTeach",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "TsvTeach - AI-Powered Learning Tool for UK Students",
-    description: "The AI-powered learning platform helping UK students ace GCSEs and A-levels. Join thousands of students improving their grades with TsvTeach.",
+    title: "TsvTeach - AI Tutor for UK Students | Join Our Waitlist",
+    description: "Join our waitlist! AI-powered learning platform for UK students. Help validate our idea - launching at 1,000 signups.",
     url: 'https://tsvteach.com',
     siteName: 'TsvTeach',
     locale: 'en_GB',
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
       url: '/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: 'TsvTeach - AI Learning Platform for UK Students',
+      alt: 'TsvTeach - AI Tutor Waitlist for UK Students',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "TsvTeach - AI-Powered Learning Tool for UK Students",
-    description: "The AI-powered learning platform helping UK students ace GCSEs and A-levels. Smart studying starts here.",
+    title: "TsvTeach - AI Tutor for UK Students",
+    description: "Join our waitlist! AI-powered learning platform for UK students preparing for GCSEs and A-levels.",
     creator: '@TsvTeach',
     images: ['/og-image.jpg'],
   },

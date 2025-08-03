@@ -1,33 +1,73 @@
+'use client';
+
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const blogPosts = [
+  {
+    slug: 'tsvteach-vs-khan-academy-uk-students',
+    title: 'TsvTeach vs Khan Academy: Which AI Tutor is Better for UK Students?',
+    excerpt: 'Comprehensive comparison of TsvTeach and Khan Academy for UK students. Discover which platform offers better GCSE and A-Level support.',
+    date: '2025-02-01',
+    readTime: '8 min read',
+    category: 'Comparisons'
+  },
+  {
+    slug: 'free-gcse-apps-vs-tsvteach-premium',
+    title: 'Free GCSE Revision Apps vs TsvTeach: Why Premium Wins',
+    excerpt: 'Detailed analysis of free GCSE apps versus TsvTeach premium features. Understand the true cost of free education apps.',
+    date: '2025-02-01',
+    readTime: '10 min read',
+    category: 'Reviews'
+  },
+  {
+    slug: 'best-a-level-subjects-medicine-ai-guide',
+    title: 'Best A-Level Subjects for Medicine: AI Tutor\'s Complete Guide',
+    excerpt: 'Complete guide to choosing A-Level subjects for Medicine with AI tutoring support. University requirements and success strategies.',
+    date: '2025-02-01',
+    readTime: '12 min read',
+    category: 'A-Level'
+  },
+  {
+    slug: 'gcse-grade-boundaries-2025-grade-9-strategy',
+    title: 'GCSE Grade Boundaries 2025: How to Guarantee Grade 9s',
+    excerpt: 'Complete guide to GCSE grade boundaries 2025 and proven strategies to achieve Grade 9s with AI tutoring support.',
+    date: '2025-02-01',
+    readTime: '15 min read',
+    category: 'GCSE'
+  },
+  {
+    slug: 'ucat-preparation-ai-tutor-3000-score',
+    title: 'UCAT Preparation with AI: How to Score 3000+ in 2025',
+    excerpt: 'Master the UCAT with AI tutoring. Complete preparation guide and proven techniques to score 3000+ for medical school success.',
+    date: '2025-02-05',
+    readTime: '18 min read',
+    category: 'Medical School'
+  },
+  {
+    slug: 'oxford-medicine-requirements-2025-complete-guide',
+    title: 'Oxford Medicine Requirements 2025: Complete Application Guide',
+    excerpt: 'Everything you need for Oxford Medicine 2025: requirements, UCAT scores, interview prep. How TsvTeach students gain advantage.',
+    date: '2025-02-10',
+    readTime: '20 min read',
+    category: 'Medical School'
+  },
+  {
+    slug: 'imperial-college-medicine-2025-application-guide',
+    title: 'Imperial College London Medicine 2025: Complete Application Guide',
+    excerpt: 'Complete strategy for Imperial Medicine 2025: requirements, UCAT scores, interview preparation, and competitive advantages.',
+    date: '2025-02-15',
+    readTime: '16 min read',
+    category: 'Medical School'
+  },
   {
     slug: 'best-gcse-ai-revision-tools-2025',
     title: 'Best GCSE AI Revision Tools 2025: TsvTeach vs Competitors',
     excerpt: 'Discover why TsvTeach is the leading AI-powered revision tool for GCSE students in 2025. Compare features, pricing, and results.',
     date: '2025-01-15',
     readTime: '8 min read',
-    category: 'GCSE',
-    keywords: 'GCSE AI revision tools, best GCSE apps 2025, TsvTeach review'
-  },
-  {
-    slug: 'tsvteach-review-worth-it',
-    title: 'TsvTeach Review: Is It Worth It for GCSE and A-Level Students?',
-    excerpt: 'Honest review of TsvTeach from real students and parents. Find out if this AI learning platform is worth the investment.',
-    date: '2025-01-10',
-    readTime: '12 min read',
-    category: 'Reviews',
-    keywords: 'TsvTeach review, TsvTeach worth it, AI learning platform review'
-  },
-  {
-    slug: 'how-tsvteach-helps-grade-9-english-lit',
-    title: 'How TsvTeach Helps You Get a Grade 9 in English Literature',
-    excerpt: 'Step-by-step guide showing how TsvTeach\'s AI tutor can help you achieve Grade 9 in GCSE English Literature with proven techniques.',
-    date: '2025-01-05',
-    readTime: '10 min read',
-    category: 'Study Tips',
-    keywords: 'Grade 9 English Literature, GCSE English tips, TsvTeach English'
+    category: 'GCSE'
   },
   {
     slug: 'a-level-maths-ai-tutor-guide',
@@ -35,33 +75,33 @@ const blogPosts = [
     excerpt: 'Master A-Level Mathematics with TsvTeach\'s AI tutor. Learn calculus, statistics, and pure maths with personalized AI assistance.',
     date: '2024-12-28',
     readTime: '9 min read',
-    category: 'A-Level',
-    keywords: 'A-Level Maths AI tutor, calculus help, TsvTeach maths'
-  },
-  {
-    slug: 'gcse-science-revision-ai-powered',
-    title: 'GCSE Science Revision Made Easy with AI-Powered Learning',
-    excerpt: 'Transform your GCSE Science revision with TsvTeach\'s AI. Biology, Chemistry, and Physics explained clearly with interactive learning.',
-    date: '2024-12-20',
-    readTime: '7 min read',
-    category: 'GCSE',
-    keywords: 'GCSE Science revision, AI science tutor, TsvTeach science'
+    category: 'A-Level'
   },
   {
     slug: 'university-success-tsvteach-students',
-    title: 'University Success Stories: How TsvTeach Students Got Into Top Unis',
-    excerpt: 'Real success stories from TsvTeach students who secured places at Oxford, Cambridge, and other top UK universities.',
+    title: 'University Success Stories: How TsvTeach Students Achieve Their Dreams',
+    excerpt: 'Real stories from TsvTeach students who achieved top grades and secured places at prestigious universities including Oxford, Cambridge, and Imperial.',
     date: '2024-12-15',
-    readTime: '15 min read',
-    category: 'Success Stories',
-    keywords: 'university success, Oxford Cambridge, TsvTeach results'
+    readTime: '11 min read',
+    category: 'Success Stories'
   }
 ];
 
+const categories = ['All', 'Medical School', 'GCSE', 'A-Level', 'Comparisons', 'Reviews', 'Success Stories'];
+
 export default function BlogPage() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredPosts = activeCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory);
+
   return (
     <>
       <Head>
+        <title>TsvTeach Blog | AI Learning Insights for UK Students</title>
+        <meta name="description" content="Expert insights on AI learning, GCSE revision, A-Level preparation, and university applications. Tips and strategies from TsvTeach's AI tutoring platform." />
+        <meta name="keywords" content="TsvTeach blog, AI learning, GCSE revision, A-Level preparation, study tips, UK education" />
         <link rel="canonical" href="https://tsvteach.com/blog" />
         <script
           type="application/ld+json"
@@ -93,54 +133,113 @@ export default function BlogPage() {
         />
       </Head>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map((post) => (
-          <article key={post.slug} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="flex items-center justify-between mb-4">
-              <span className="bg-[#00f400] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                {post.category}
-              </span>
-              <span className="text-gray-500 text-sm">{post.readTime}</span>
+      <div className="min-h-screen bg-white">
+        {/* Navigation */}
+        <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">T</span>
             </div>
-            
-            <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
-              <Link href={`/blog/${post.slug}`} className="hover:text-[#00f400] transition-colors">
-                {post.title}
-              </Link>
-            </h2>
-            
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              {post.excerpt}
-            </p>
-            
-            <div className="flex items-center justify-between text-sm text-gray-500">
-              <span>{new Date(post.date).toLocaleDateString('en-GB', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}</span>
-              <Link 
-                href={`/blog/${post.slug}`}
-                className="text-[#00f400] font-semibold hover:text-[#00e600] transition-colors"
-              >
-                Read More →
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
+            <span className="text-black font-semibold text-xl">TsvTeach</span>
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-600 hover:text-black transition-colors">Home</Link>
+            <Link href="/about" className="text-gray-600 hover:text-black transition-colors">About</Link>
+            <Link href="/gcse" className="text-gray-600 hover:text-black transition-colors">GCSE</Link>
+            <Link href="/a-levels" className="text-gray-600 hover:text-black transition-colors">A-Levels</Link>
+            <span className="text-black font-medium">Blog</span>
+          </div>
+          
+          <Link 
+            href="/" 
+            className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            Get Started
+          </Link>
+        </nav>
 
-      <div className="mt-16 bg-gradient-to-r from-[#00f400] to-[#00e600] rounded-2xl p-8 text-center">
-        <h2 className="text-3xl font-bold text-black mb-4">Ready to Transform Your Learning?</h2>
-        <p className="text-lg text-black mb-6">
-          Join thousands of students already using <strong>TsvTeach</strong> to achieve top grades in GCSEs and A-levels.
-        </p>
-        <Link 
-          href="/" 
-          className="inline-block bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all duration-300"
-        >
-          Start Learning with TsvTeach
-        </Link>
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              TsvTeach Learning Hub
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Expert insights, study strategies, and success stories from the UK's leading AI tutoring platform
+            </p>
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full transition-all duration-200 ${
+                  activeCategory === category
+                    ? 'bg-black text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Blog Posts Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <article className="bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 overflow-hidden h-full">
+                  <div className="p-6">
+                    {/* Category Badge */}
+                    <div className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full mb-4">
+                      {post.category}
+                    </div>
+                    
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-black mb-3 leading-tight">
+                      {post.title}
+                    </h2>
+                    
+                    {/* Excerpt */}
+                    <p className="text-gray-600 mb-4">
+                      {post.excerpt}
+                    </p>
+                    
+                    {/* Meta */}
+                    <div className="flex items-center text-sm text-gray-500">
+                      <span>{new Date(post.date).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                      })}</span>
+                      <span className="mx-2">•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          {/* Email Signup CTA */}
+          <div className="bg-gray-50 rounded-2xl p-8 text-center mt-16">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Get the latest study insights
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Join thousands of students getting AI-powered learning tips, study strategies, and success stories delivered to their inbox.
+            </p>
+            <Link 
+              href="/" 
+              className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            >
+              Start Learning with TsvTeach AI
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
