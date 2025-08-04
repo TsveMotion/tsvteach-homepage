@@ -85,95 +85,44 @@ export default function SignupCounter() {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-white border-2 border-gray-300 rounded-xl p-8 shadow-lg">
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-          🚀 Beta Launch Progress
+    <div className="w-full max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-sm">
+      {/* Compact Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+        <div className="flex items-center space-x-2">
+          <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+            🚀 Launch Progress
+          </div>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Launch Progress
-        </h3>
-        <p className="text-base text-gray-700">
-          We're validating our idea! Launch when we reach {signupData.target.toLocaleString()} beta signups.
-        </p>
+        <div className="text-xs text-gray-500 sm:text-right">
+          Launching at {signupData.target.toLocaleString()} signups
+        </div>
       </div>
       
-      {/* Enhanced Growth Graph */}
-      <div className="mb-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border-2 border-gray-200 p-6">
-        <div className="text-sm font-semibold text-gray-700 mb-4 text-center flex items-center justify-center">
-          <span className="mr-2">📈</span> Beta Signup Trend
-        </div>
-        <svg width="100%" height="80" viewBox="0 0 100 100" className="overflow-visible">
-          <defs>
-            <linearGradient id="graphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#10b981', stopOpacity: 0.3}} />
-              <stop offset="100%" style={{stopColor: '#10b981', stopOpacity: 0.1}} />
-            </linearGradient>
-          </defs>
-          
-          {/* Grid lines */}
-          {[25, 50, 75].map(y => (
-            <line key={y} x1="0" y1={y} x2="100" y2={y} stroke="#f3f4f6" strokeWidth="0.5" />
-          ))}
-          
-          {/* Area under curve */}
-          <path
-            d={`${pathData} L 100 100 L 0 100 Z`}
-            fill="url(#graphGradient)"
-          />
-          
-          {/* Main line */}
-          <path
-            d={pathData}
-            fill="none"
-            stroke="#10b981"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          
-          {/* Data points */}
-          {graphPoints.map((point, index) => (
-            <circle
-              key={index}
-              cx={point.x}
-              cy={point.y}
-              r="1.5"
-              fill="#10b981"
-            />
-          ))}
-        </svg>
-      </div>
-      
-      <div className="space-y-6">
-        {/* Main Numbers Display */}
-        <div className="text-center bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-blue-600 mb-1">
+      {/* Horizontal Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+        {/* Numbers Display - More Compact */}
+        <div className="lg:col-span-1">
+          <div className="text-center lg:text-left">
+            <div className="flex items-baseline justify-center lg:justify-start space-x-2">
+              <span className="text-3xl md:text-4xl font-bold text-blue-600">
                 {signupData.current.toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">
-                Beta Users
-              </div>
+              </span>
+              <span className="text-lg text-gray-400 font-medium">
+                / {signupData.target.toLocaleString()}
+              </span>
             </div>
-            <div className="text-2xl text-gray-300">/</div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-400">
-                {signupData.target.toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">
-                Launch Goal
-              </div>
+            <div className="text-xs text-gray-500 mt-1">
+              Beta Users • {percentage.toFixed(1)}% complete
             </div>
           </div>
         </div>
         
-        {/* Enhanced Progress Bar */}
-        <div className="bg-white rounded-lg p-4">
-          <div className="w-full bg-gray-200 rounded-full h-4 mb-3">
+        {/* Progress Bar - Horizontal Focus */}
+        <div className="lg:col-span-2 space-y-3">
+          <div className="w-full bg-gray-200 rounded-full h-3">
             <motion.div
-              className="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full relative overflow-hidden"
+              className="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full relative overflow-hidden"
               initial={{ width: 0 }}
               animate={{ width: `${percentage}%` }}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -182,19 +131,28 @@ export default function SignupCounter() {
             </motion.div>
           </div>
           
-          <div className="text-center">
-            <span className="text-xl font-bold text-gray-800">
-              {signupData.remaining.toLocaleString()} more needed to launch!
-            </span>
-            <div className="text-sm text-gray-500 mt-1">
-              {percentage.toFixed(1)}% complete
+          <div className="flex justify-between items-center text-xs text-gray-600">
+            <span>{signupData.remaining.toLocaleString()} more to launch!</span>
+            <div className="flex items-center space-x-2">
+              <svg width="40" height="20" viewBox="0 0 40 20" className="opacity-60">
+                <defs>
+                  <linearGradient id="miniGraphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{stopColor: '#10b981', stopOpacity: 0.4}} />
+                    <stop offset="100%" style={{stopColor: '#10b981', stopOpacity: 0.1}} />
+                  </linearGradient>
+                </defs>
+                <path
+                  d={`M 0 ${20 - (signupData.current * 0.8 / signupData.target * 20)} Q 10 ${20 - (signupData.current * 0.9 / signupData.target * 20)} 20 ${20 - (signupData.current * 0.95 / signupData.target * 20)} T 40 ${20 - (signupData.current / signupData.target * 20)}`}
+                  fill="none"
+                  stroke="#10b981"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span className="text-green-600 font-medium">📈</span>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="mt-4 text-xs text-gray-500 text-center">
-        Join now to be among the first users when we launch!
       </div>
     </div>
   );
