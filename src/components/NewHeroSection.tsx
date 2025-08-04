@@ -76,10 +76,11 @@ export default function NewHeroSection() {
       {/* Simplified Navigation Header */}
       <nav className="flex items-center justify-between px-4 md:px-6 py-4 bg-white border-b border-gray-100">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">T</span>
-          </div>
-          <span className="text-gray-900 font-semibold text-xl">TsvTeach</span>
+          <img 
+            src="/LongLogo.png" 
+            alt="TsvTeach Logo" 
+            className="h-12 w-auto" 
+          />
         </div>
         
         <button 
@@ -93,8 +94,8 @@ export default function NewHeroSection() {
       {/* Main Hero Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-16 text-center">
         {/* Validation badge */}
-        <div className="inline-flex items-center bg-blue-50 text-blue-600 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-6 md:mb-8">
-          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+        <div className="inline-flex items-center bg-cyan-50 text-cyan-700 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-6 md:mb-8">
+          <span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>
           Help us validate our idea!
         </div>
 
@@ -128,6 +129,27 @@ export default function NewHeroSection() {
           <SignupCounter />
         </motion.div>
 
+        {/* Pricing Incentive */}
+        <motion.div
+          className="mb-6 md:mb-8 max-w-lg mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+        >
+          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-lg p-4 text-center">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <span className="text-2xl">🎉</span>
+              <span className="font-bold text-cyan-800">Waitlist Exclusive Offer</span>
+            </div>
+            <p className="text-sm text-gray-700 mb-2">
+              <span className="font-semibold text-cyan-700">1 month FREE</span> + only <span className="font-bold text-cyan-600">£3.95/month</span>
+            </p>
+            <p className="text-xs text-gray-600">
+              (Regular price: £6.95/month after launch)
+            </p>
+          </div>
+        </motion.div>
+
         {/* Email Signup Form */}
         {!isSubmitted ? (
           <motion.form 
@@ -143,13 +165,13 @@ export default function NewHeroSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="flex-1 w-full sm:w-auto px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-gray-900 bg-white shadow-sm"
+              className="flex-1 w-full sm:w-auto px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none text-gray-900 bg-white shadow-sm"
               required
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full sm:w-auto bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 font-medium"
+              className="w-full sm:w-auto bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors disabled:opacity-50 font-medium"
             >
               {isLoading ? 'Joining...' : 'Join Waitlist'}
             </button>
@@ -168,7 +190,7 @@ export default function NewHeroSection() {
               <span className="font-semibold text-sm md:text-base">You're on the waitlist!</span>
             </div>
             <p className="text-green-600 mt-2 text-xs md:text-sm text-center">
-              We'll notify you when we launch. Thank you for helping us validate our idea!
+              We'll notify you when we launch. You've secured <span className="font-semibold">1 month FREE + £3.95/month</span> (vs £6.95 regular)!
             </p>
           </motion.div>
         )}

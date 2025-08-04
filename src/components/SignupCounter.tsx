@@ -89,8 +89,8 @@ export default function SignupCounter() {
       {/* Compact Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
         <div className="flex items-center space-x-2">
-          <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
-            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+          <div className="inline-flex items-center bg-gradient-to-r from-cyan-50 to-blue-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2 animate-pulse"></span>
             🚀 Launch Progress
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function SignupCounter() {
         <div className="lg:col-span-1">
           <div className="text-center lg:text-left">
             <div className="flex items-baseline justify-center lg:justify-start space-x-2">
-              <span className="text-3xl md:text-4xl font-bold text-blue-600">
+              <span className="text-3xl md:text-4xl font-bold text-cyan-600">
                 {signupData.current.toLocaleString()}
               </span>
               <span className="text-lg text-gray-400 font-medium">
@@ -122,7 +122,7 @@ export default function SignupCounter() {
         <div className="lg:col-span-2 space-y-3">
           <div className="w-full bg-gray-200 rounded-full h-3">
             <motion.div
-              className="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full relative overflow-hidden"
+              className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full relative overflow-hidden"
               initial={{ width: 0 }}
               animate={{ width: `${percentage}%` }}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -137,19 +137,19 @@ export default function SignupCounter() {
               <svg width="40" height="20" viewBox="0 0 40 20" className="opacity-60">
                 <defs>
                   <linearGradient id="miniGraphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style={{stopColor: '#10b981', stopOpacity: 0.4}} />
-                    <stop offset="100%" style={{stopColor: '#10b981', stopOpacity: 0.1}} />
+                    <stop offset="0%" style={{stopColor: '#06b6d4', stopOpacity: 0.4}} />
+                    <stop offset="100%" style={{stopColor: '#06b6d4', stopOpacity: 0.1}} />
                   </linearGradient>
                 </defs>
                 <path
                   d={`M 0 ${20 - (signupData.current * 0.8 / signupData.target * 20)} Q 10 ${20 - (signupData.current * 0.9 / signupData.target * 20)} 20 ${20 - (signupData.current * 0.95 / signupData.target * 20)} T 40 ${20 - (signupData.current / signupData.target * 20)}`}
                   fill="none"
-                  stroke="#10b981"
+                  stroke="#06b6d4"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                 />
               </svg>
-              <span className="text-green-600 font-medium">📈</span>
+              <span className="text-cyan-600 font-medium">📈</span>
             </div>
           </div>
         </div>
