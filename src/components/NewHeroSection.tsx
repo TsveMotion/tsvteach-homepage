@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SignupCounter from './SignupCounter';
 
 export default function NewHeroSection() {
@@ -76,10 +77,13 @@ export default function NewHeroSection() {
       {/* Simplified Navigation Header */}
       <nav className="flex items-center justify-between px-4 md:px-6 py-4 bg-white border-b border-gray-100">
         <div className="flex items-center space-x-2">
-          <img 
+          <Image 
             src="/LongLogo.png" 
             alt="TsvTeach Logo" 
-            className="h-12 w-auto" 
+            width={180}
+            height={24}
+            className="h-8 w-auto" 
+            priority
           />
         </div>
         

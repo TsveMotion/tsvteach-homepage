@@ -1,6 +1,21 @@
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
+interface Question {
+  question: string;
+  answer: string;
+}
+
+interface SchemaData {
+  questions?: Question[];
+  breadcrumbs?: Breadcrumb[];
+}
+
 interface SchemaProps {
   type: 'organization' | 'faq' | 'breadcrumb';
-  data?: any;
+  data?: SchemaData;
 }
 
 export default function EnhancedSchema({ type, data }: SchemaProps) {
@@ -35,7 +50,7 @@ export default function EnhancedSchema({ type, data }: SchemaProps) {
       schema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": data?.questions?.map((q: any) => ({
+        "mainEntity": data?.questions?.map((q: Question) => ({
           "@type": "Question",
           "name": q.question,
           "acceptedAnswer": {
@@ -50,7 +65,7 @@ export default function EnhancedSchema({ type, data }: SchemaProps) {
       schema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": data?.breadcrumbs?.map((item: any, index: number) => ({
+        "itemListElement": data?.breadcrumbs?.map((item: Breadcrumb, index: number) => ({
           "@type": "ListItem",
           "position": index + 1,
           "name": item.name,
