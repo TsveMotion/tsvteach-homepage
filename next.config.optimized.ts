@@ -2,24 +2,25 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Performance optimizations
-  swcMinify: true,
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  
+  // Enable compression
   compress: true,
   
-  // Modern ES target (removes legacy polyfills)
+  // Enable static optimization
+  swcMinify: true,
+  
+  // Bundle analyzer for production builds
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
-  // Image optimization
-  images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 86400,
-  },
-
-  // Headers for SEO and security
+  // Headers for better caching and security
   async headers() {
     return [
       {
@@ -39,18 +40,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
-  },
-
-  // Webpack optimization for performance
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-      };
-    }
-    return config;
   },
 };
 

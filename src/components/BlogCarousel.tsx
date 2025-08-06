@@ -148,7 +148,8 @@ export default function BlogCarousel() {
               <button
                 onClick={prevSlide}
                 disabled={currentIndex === 0}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border-2 border-gray-300 rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Previous blog posts"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border-2 border-gray-300 rounded-full p-4 shadow-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] min-w-[48px]"
               >
                 <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -158,7 +159,8 @@ export default function BlogCarousel() {
               <button
                 onClick={nextSlide}
                 disabled={currentIndex === totalPages - 1}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border-2 border-gray-300 rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Next blog posts"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border-2 border-gray-300 rounded-full p-4 shadow-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] min-w-[48px]"
               >
                 <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -175,10 +177,15 @@ export default function BlogCarousel() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  i === currentIndex ? 'bg-blue-600' : 'bg-gray-300 hover:bg-gray-400'
+                aria-label={`Go to page ${i + 1}`}
+                className={`w-12 h-12 rounded-full transition-colors flex items-center justify-center ${
+                  i === currentIndex ? 'bg-blue-600' : 'bg-gray-400 hover:bg-gray-500'
                 }`}
-              />
+              >
+                <span className={`w-3 h-3 rounded-full ${
+                  i === currentIndex ? 'bg-white' : 'bg-white'
+                }`} />
+              </button>
             ))}
           </div>
         )}
