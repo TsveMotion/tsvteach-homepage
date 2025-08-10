@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function FinalEmailCTA() {
   const [email, setEmail] = useState('');
@@ -106,11 +107,14 @@ export default function FinalEmailCTA() {
       <footer className="bg-white border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-12 text-center">
           {/* Logo */}
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="font-semibold text-gray-900 text-xl">TsvTeach</span>
+          <div className="flex items-center justify-center mb-6">
+            <Image 
+              src="/LongLogo.png" 
+              alt="TsvTeach Logo" 
+              width={180}
+              height={24}
+              className="h-8 w-auto" 
+            />
           </div>
           
           {/* Validation Message */}

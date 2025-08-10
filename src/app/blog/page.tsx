@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 const blogPosts = [
@@ -136,11 +137,15 @@ export default function BlogPage() {
       <div className="min-h-screen bg-white">
         {/* Navigation */}
         <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="text-black font-semibold text-xl">TsvTeach</span>
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/LongLogo.png" 
+              alt="TsvTeach Logo" 
+              width={180}
+              height={24}
+              className="h-8 w-auto" 
+              priority
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -159,13 +164,13 @@ export default function BlogPage() {
           </Link>
         </nav>
 
-        <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="max-w-6xl mx-auto px-6 pt-20 pb-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-              TsvTeach Learning Hub
+            <h1 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Learning Hub
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               Expert insights, study strategies, and success stories from the UK's leading AI tutoring platform
             </p>
           </div>

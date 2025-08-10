@@ -13,8 +13,8 @@ interface SignupData {
 export default function SignupCounter() {
   const [signupData, setSignupData] = useState<SignupData>({
     current: 0,
-    target: 1000,
-    remaining: 1000,
+    target: 50,
+    remaining: 50,
     lastUpdated: new Date().toISOString()
   });
   const [loading, setLoading] = useState(true);
@@ -30,8 +30,8 @@ export default function SignupCounter() {
         // Fallback data
         setSignupData({
           current: 47,
-          target: 1000,
-          remaining: 953,
+          target: 50,
+          remaining: 3,
           lastUpdated: new Date().toISOString()
         });
       } finally {
@@ -68,9 +68,6 @@ export default function SignupCounter() {
   };
   
   const graphPoints = generateGraphData();
-  const pathData = graphPoints.map((point, index) => 
-    `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`
-  ).join(' ');
 
   if (loading) {
     return (

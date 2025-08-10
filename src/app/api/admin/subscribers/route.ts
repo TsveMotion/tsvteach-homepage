@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { MongoClient } from 'mongodb';
 
 // MongoDB connection
@@ -14,7 +14,7 @@ if (!client) {
   clientPromise = client.connect();
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db(DB_NAME);

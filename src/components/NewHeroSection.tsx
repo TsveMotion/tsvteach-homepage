@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import SignupCounter from './SignupCounter';
 
 export default function NewHeroSection() {
@@ -74,9 +75,9 @@ export default function NewHeroSection() {
           ))}
         </div>
       )}
-      {/* Simplified Navigation Header */}
-      <nav className="flex items-center justify-between px-4 md:px-6 py-4 bg-white border-b border-gray-100">
-        <div className="flex items-center space-x-2">
+      {/* Navigation Header */}
+      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <Link href="/" className="flex items-center">
           <Image 
             src="/LongLogo.png" 
             alt="TsvTeach Logo" 
@@ -85,13 +86,21 @@ export default function NewHeroSection() {
             className="h-8 w-auto" 
             priority
           />
+        </Link>
+        
+        <div className="hidden md:flex items-center space-x-8">
+          <span className="text-black font-medium">Home</span>
+          <Link href="/about" className="text-gray-600 hover:text-black transition-colors">About</Link>
+          <Link href="/gcse" className="text-gray-600 hover:text-black transition-colors">GCSE</Link>
+          <Link href="/a-levels" className="text-gray-600 hover:text-black transition-colors">A-Levels</Link>
+          <Link href="/blog" className="text-gray-600 hover:text-black transition-colors">Blog</Link>
         </div>
         
         <button 
           onClick={() => document.getElementById('email-input')?.focus()}
-          className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm md:text-base"
+          className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
         >
-          Join Waitlist
+          Get Started
         </button>
       </nav>
 
@@ -104,14 +113,14 @@ export default function NewHeroSection() {
         </div>
 
         {/* Main Headline */}
-        <motion.h1 
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-4 md:mb-6"
+        <motion.h2 
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           AI Tutor for UK Students
-        </motion.h1>
+        </motion.h2>
 
         {/* Subtitle */}
         <motion.p 

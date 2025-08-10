@@ -22,7 +22,7 @@ export async function GET() {
     
     // Get actual subscriber count from database
     const currentCount = await collection.countDocuments({});
-    const target = 1000;
+    const target = 50;
     const remaining = Math.max(0, target - currentCount);
     
     return NextResponse.json({
@@ -36,8 +36,8 @@ export async function GET() {
     // Fallback to prevent app breaking
     return NextResponse.json({
       current: 0,
-      target: 1000,
-      remaining: 1000,
+      target: 50,
+      remaining: 50,
       lastUpdated: new Date().toISOString()
     });
   }
