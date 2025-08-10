@@ -48,27 +48,6 @@ export default function SignupCounter() {
 
   const percentage = (signupData.current / signupData.target) * 100;
   
-  // Generate consistent data points for a simple graph (no random for SSR compatibility)
-  const generateGraphData = () => {
-    const points = [];
-    const current = signupData.current;
-    const steps = 10;
-    
-    for (let i = 0; i < steps; i++) {
-      // Use deterministic values based on current count to avoid SSR hydration mismatch
-      const baseValue = current - (steps - i - 1) * 2;
-      const variation = Math.sin(i * 0.5) * 3; // Deterministic variation
-      const value = Math.max(0, baseValue + variation);
-      points.push({
-        x: (i / (steps - 1)) * 100,
-        y: 100 - (value / signupData.target) * 100
-      });
-    }
-    return points;
-  };
-  
-  const graphPoints = generateGraphData();
-
   if (loading) {
     return (
       <div className="w-full max-w-md mx-auto bg-white border border-gray-200 rounded-lg p-6 shadow-sm">

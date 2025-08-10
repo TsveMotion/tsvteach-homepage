@@ -49,4 +49,104 @@
         <priority>0.9</priority>
     </url>
     
+    <!-- Blog Main Page -->
+    <url>
+        <loc>https://tsvteach.com/blog</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Posts - High-Value Content for SEO -->
+    <url>
+        <loc>https://tsvteach.com/blog/a-level-maths-ai-tutor-guide</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/best-a-level-subjects-medicine-ai-guide</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/best-gcse-ai-revision-tools-2025</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/free-gcse-apps-vs-tsvteach-premium</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/gcse-grade-boundaries-2025-grade-9-strategy</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/gcse-science-revision-ai-powered</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/how-tsvteach-helps-grade-9-english-lit</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/imperial-college-medicine-2025-application-guide</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/oxford-medicine-requirements-2025-complete-guide</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/tsvteach-review-worth-it</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/tsvteach-vs-khan-academy-uk-students</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/ucat-preparation-ai-tutor-3000-score</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://tsvteach.com/blog/university-success-tsvteach-students</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>

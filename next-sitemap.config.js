@@ -35,12 +35,42 @@ module.exports = {
         lastmod: new Date().toISOString(),
       }
     }
+    
+    // High priority for key landing pages
+    if (path === '/gcse' || path === '/a-levels') {
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      }
+    }
+    
+    // Medium-high priority for about and blog main page
+    if (path === '/about' || path === '/blog') {
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      }
+    }
+    
+    // Blog posts - good content priority
+    if (path.startsWith('/blog/')) {
+      return {
+        loc: path,
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      }
+    }
 
     // Default transformation for other pages
     return {
       loc: path,
-      changefreq: config.changefreq,
-      priority: config.priority,
+      changefreq: 'monthly',
+      priority: 0.6,
       lastmod: new Date().toISOString(),
     }
   },
